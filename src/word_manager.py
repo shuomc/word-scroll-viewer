@@ -109,7 +109,7 @@ class WordManager:
         if not self.is_loaded or not self.vocabulary:
             return
         self.save_progress()
-        scroll_mode = self.get_config("app", "default_scroll_mode", "文件内循环")
+        scroll_mode = self.get_config("app", "default_scroll_mode", "下一文件")
         if scroll_mode == "播完停止":
             if self.current_index < len(self.vocabulary) - 1:
                 self.current_index += 1
@@ -164,6 +164,7 @@ class WordManager:
         return len(self.vocabulary)
 
     def get_current_file_name(self):
-        if self.files and self.current_file_index < len(self.files):
+        # 修复：确保索引有效且files不为空
+        if self.files and 0 <= self.current_file_index < len(self.files):
             return os.path.basename(self.files[self.current_file_index])
         return "Unknown"

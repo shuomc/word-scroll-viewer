@@ -1,0 +1,10 @@
+advanced n.高级的；先进的；
+technology n.技术；科技；
+innovation n.创新；革新；
+development n.发展；开发；
+research n.研究；调查；
+analysis n.分析；解析；
+synthesis n.合成；综合；
+optimization n.优化；最佳化；
+integration n.集成；整合；
+deployment n.部署；配置； 

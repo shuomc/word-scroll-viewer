@@ -30,5 +30,6 @@ if __name__ == "__main__":
             f.write("Interface n.界面；接口；\n")
             f.write("Desktop n.桌面；台式机；\n")
             f.write("Application n.应用程序；应用；\n")
-    
+
+
     main()
