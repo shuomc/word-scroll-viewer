@@ -164,6 +164,7 @@ class WordManager:
         return len(self.vocabulary)
 
     def get_current_file_name(self):
-        if self.files and self.current_file_index < len(self.files):
+        # 修复：确保索引有效且files不为空
+        if self.files and 0 <= self.current_file_index < len(self.files):
             return os.path.basename(self.files[self.current_file_index])
         return "Unknown"

@@ -119,6 +119,7 @@ class WordScrollerWindow(QWidget):
         self.start_word_display()
         # 设置文件切换回调
         self.word_manager.set_file_changed_callback(self.update_window_title)
+        self.update_window_title()  # 注册回调后主动刷新标题，确保首次运行标题正确
     
     def setup_window(self):
         """设置窗口属性"""
@@ -387,10 +388,19 @@ class WordScrollerWindow(QWidget):
         if not self.word_manager.load_all_vocabulary():
             self.word_label.setText("没有找到词库文件！")
             return
-        self.apply_settings()
-        self.next_word_and_animate()
-        self.word_change_timer.start(self.word_change_interval_ms)
+
+        self.apply_settings()  # 应用字体等设置
+
+        # 关键：首次启动时立即显示当前单词和释义
+        current_word, current_meaning = self.word_manager.get_current_word()
+        self.set_current_word_text(current_word)
+        self.set_current_meaning_text(current_meaning)
+
+        # 关键：立即刷新窗口标题，确保显示正确的单词本名
         self.update_window_title()
+
+        # 启动定时器，后续自动切换
+        self.word_change_timer.start(self.word_change_interval_ms)
     
     # 属性设置
     def get_current_word_text(self):
@@ -430,6 +440,7 @@ class WordScrollerWindow(QWidget):
             self.fade_timer = QTimer(self)
             self.fade_timer.timeout.connect(self.fade_out)
             self.fade_timer.start(50)
+        # 每次单词切换都刷新标题
         self.update_window_title()
     
     def fade_out(self):
