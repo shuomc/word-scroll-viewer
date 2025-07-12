@@ -2,7 +2,7 @@
   "main_window": {
     "background_color": "black",
     "text_color": "white",
-    "opacity": 0.6
+    "opacity": 1.0
   },
   "settings_dialog": {
     "background_color": "white",
@@ -17,7 +17,7 @@
   },
   "app": {
     "default_font_size": 22,
-    "default_interval": 0.5,
+    "default_interval": 2.5,
     "default_scroll_mode": "下一文件",
     "window_width": 500,
     "window_height": 120,
