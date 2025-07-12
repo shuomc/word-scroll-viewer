@@ -1,0 +1,10 @@
+smoke n.烟雾；v.抽烟；
+apple n.苹果；
+computer n.计算机；电脑；
+programming n.编程；程序设计；
+interface n.界面；接口；
+desktop n.桌面；台式机；
+application n.应用程序；应用；
+python n.蟒蛇；Python编程语言；
+database n.数据库；
+algorithm n.算法；
