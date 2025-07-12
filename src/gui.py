@@ -361,8 +361,8 @@ class WordScrollerWindow(QWidget):
     
     def load_settings(self):
         """加载设置"""
-        self.font_size = config.get("app", "default_font_size", 48)
-        self.scroll_mode = config.get("app", "default_scroll_mode", "文件内循环")
+        self.font_size = config.get("app", "default_font_size", 22)
+        self.scroll_mode = config.get("app", "default_scroll_mode", "下一文件")
         self.interval = config.get("app", "default_interval", 3)
     
     def apply_settings(self):

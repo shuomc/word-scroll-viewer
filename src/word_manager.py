@@ -109,7 +109,7 @@ class WordManager:
         if not self.is_loaded or not self.vocabulary:
             return
         self.save_progress()
-        scroll_mode = self.get_config("app", "default_scroll_mode", "文件内循环")
+        scroll_mode = self.get_config("app", "default_scroll_mode", "下一文件")
         if scroll_mode == "播完停止":
             if self.current_index < len(self.vocabulary) - 1:
                 self.current_index += 1

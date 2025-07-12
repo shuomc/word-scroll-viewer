@@ -154,7 +154,7 @@ WordScrollViewer/
   "app": {
     "default_font_size": 22,            
     "default_interval": 2.5,
-    "default_scroll_mode": "文件内循环",
+    "default_scroll_mode": "下一文件",
     "window_width": 500,
     "window_height": 120,
     "current_index": 7,
