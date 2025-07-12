@@ -170,4 +170,4 @@ WordScrollViewer/
 
 ## 许可证
 
-本项目仅供学习和个人使用。 
+本项目遵循Apache-2.0 license
