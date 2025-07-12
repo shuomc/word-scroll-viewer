@@ -380,7 +380,7 @@ class WordScrollerWindow(QWidget):
     def update_window_title(self):
         """根据当前词库文件名更新窗口标题"""
         file_name = self.word_manager.get_current_file_name() if hasattr(self.word_manager, 'get_current_file_name') else ""
-        self.setWindowTitle(f"单词滚动显示器  （单词本: {file_name}）")
+        self.setWindowTitle(f"滚动显示器  （单词本: {file_name}）")
     
     def start_word_display(self):
         """开始单词显示"""
@@ -430,6 +430,7 @@ class WordScrollerWindow(QWidget):
             self.fade_timer = QTimer(self)
             self.fade_timer.timeout.connect(self.fade_out)
             self.fade_timer.start(50)
+        self.update_window_title()
     
     def fade_out(self):
         """淡出动画"""
