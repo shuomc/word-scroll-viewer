@@ -9,6 +9,12 @@ from PySide6.QtGui import QFont, Qt, QMouseEvent, QKeyEvent, QPalette, QColor, Q
 from PySide6.QtCore import QTimer, Property, Signal, Slot, QPoint, QSettings
 from config import config
 
+def get_base_dir():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    else:
+        return os.path.dirname(os.path.abspath(__file__))
+
 class SettingsDialog(QDialog):
     """设置对话框"""
     def __init__(self, parent=None):
@@ -226,7 +232,7 @@ class WordScrollerWindow(QWidget):
         
         if files:
             # 复制文件到resources目录
-            resources_dir = "../resources"
+            resources_dir = os.path.join(get_base_dir(), "resources")
             if not os.path.exists(resources_dir):
                 os.makedirs(resources_dir)
 
@@ -249,7 +255,7 @@ class WordScrollerWindow(QWidget):
     def select_vocabulary_file(self):
         """选择单词本文件"""
         # 获取当前可用的词库文件列表
-        resources_dir = "../resources"
+        resources_dir = os.path.join(get_base_dir(), "resources")
         if not os.path.exists(resources_dir):
             QMessageBox.warning(self, "错误", "词库目录不存在")
             return
@@ -310,7 +316,7 @@ class WordScrollerWindow(QWidget):
 
     def switch_to_vocabulary_file(self, filename):
         """切换到指定的词库文件"""
-        resources_dir = "../resources"
+        resources_dir = os.path.join(get_base_dir(), "resources")
         file_path = os.path.join(resources_dir, filename)
         
         if not os.path.exists(file_path):

@@ -1,8 +1,18 @@
 import os
 import json
+import sys
+
+def get_base_dir():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    else:
+        return os.path.dirname(os.path.abspath(__file__))
 
 class WordManager:
-    def __init__(self, config_path="../config.json"):
+    def __init__(self, config_path=None):
+        base_dir = get_base_dir()
+        if config_path is None:
+            config_path = os.path.join(base_dir, "config.json")
         self.vocabulary = []  # 存储单词和解释的元组 [(word, meaning), ...]
         self.current_index = 0
         self.is_loaded = False
@@ -23,7 +33,6 @@ class WordManager:
             json.dump(self.config, f, ensure_ascii=False, indent=2)
 
     def get_config(self, section, key, default=None):
-        # 每次都重新读取配置文件，保证是最新的
         self.load_config()
         return self.config.get(section, {}).get(key, default)
 
@@ -33,8 +42,9 @@ class WordManager:
         self.config[section][key] = value
         self.save_config()
 
-    def load_all_vocabulary(self, resources_dir="../resources"):
-        """加载resources目录下的所有txt文件"""
+    def load_all_vocabulary(self, resources_dir=None):
+        if resources_dir is None:
+            resources_dir = os.path.join(get_base_dir(), "resources")
         self.vocabulary.clear()
         self.current_index = 0
         self.is_loaded = False
@@ -72,7 +82,7 @@ class WordManager:
             print(f"Error loading vocabulary files: {e}")
             return False
 
-    def load_vocabulary(self, file_path="../resources/words.txt"):
+    def load_vocabulary(self, file_path=None):
         return self.load_all_vocabulary()
 
     def save_progress(self):

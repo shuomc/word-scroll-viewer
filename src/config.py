@@ -1,10 +1,18 @@
 import json
 import os
+import sys
 from pathlib import Path
+
+def get_base_dir():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    else:
+        return os.path.dirname(os.path.abspath(__file__))
 
 class Config:
     def __init__(self):
-        self.config_file = Path("../config.json")
+        base_dir = get_base_dir()
+        self.config_file = Path(os.path.join(base_dir, "config.json"))
         self.default_config = {
             "main_window": {
                 "background_color": "black",
@@ -17,21 +25,24 @@ class Config:
                 "button_background": "#f0f0f0",
                 "button_text_color": "black"
             },
-            "combobox": {
-                "background_color": "white",
-                "text_color": "black"
-            },
             "context_menu": {
                 "background_color": "white",
                 "text_color": "black",
                 "selected_background": "#e6f0fa"
             },
             "app": {
-                "default_font_size": 48,
+                "default_font_size": 22,
                 "default_interval": 2.5,
                 "default_scroll_mode": "文件内循环",
                 "window_width": 500,
-                "window_height": 120
+                "window_height": 120,
+                "current_index": 7,
+                "current_file_index": 0,
+                "total_words": 26
+            },
+            "combobox": {
+                "background_color": "white",
+                "text_color": "black"
             }
         }
         self.load_config()
