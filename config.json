@@ -17,11 +17,11 @@
   },
   "app": {
     "default_font_size": 22,
-    "default_interval": 0.5,
+    "default_interval": 2.5,
     "default_scroll_mode": "文件内循环",
     "window_width": 500,
     "window_height": 120,
-    "current_index": 19,
+    "current_index": 0,
     "current_file_index": 0,
     "total_words": 26
   },
