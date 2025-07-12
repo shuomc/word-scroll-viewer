@@ -118,9 +118,9 @@ WordScrollViewer/
 ```json
 {
   "main_window": {
-    "background_color": "black",      // 主窗口背景色
-    "text_color": "white",            // 主窗口文字颜色
-    "opacity": 1.0                    // 主窗口不透明度（0~1）
+    "background_color": "black",
+    "text_color": "white",
+    "opacity": 1.0
   }
 }
 ```
@@ -129,10 +129,10 @@ WordScrollViewer/
 ```json
 {
   "settings_dialog": {
-    "background_color": "white",      // 设置对话框背景色
-    "text_color": "black",            // 设置对话框文字颜色
-    "button_background": "#f0f0f0",   // 设置对话框按钮背景色
-    "button_text_color": "black"      // 设置对话框按钮文字颜色
+    "background_color": "white",
+    "text_color": "black",
+    "button_background": "#f0f0f0",
+    "button_text_color": "black"
   }
 }
 ```
@@ -141,9 +141,9 @@ WordScrollViewer/
 ```json
 {
   "context_menu": {
-    "background_color": "white",      // 右键菜单背景色
-    "text_color": "black",            // 右键菜单文字颜色
-    "selected_background": "#e6f0fa"  // 右键菜单选中项背景色
+    "background_color": "white",
+    "text_color": "black",
+    "selected_background": "#e6f0fa"
   }
 }
 ```
@@ -152,14 +152,14 @@ WordScrollViewer/
 ```json
 {
   "app": {
-    "default_font_size": 22,            // 默认字体大小（像素）
-    "default_interval": 2.5,            // 单词切换间隔（秒）
-    "default_scroll_mode": "文件内循环", // 滚动模式（可选：播完停止、文件内循环、下一文件）
-    "window_width": 500,                // 窗口默认宽度（像素）
-    "window_height": 120,               // 窗口默认高度（像素）
-    "current_index": 7,                 // 当前单词索引（自动维护，无需手动修改）
-    "current_file_index": 0,            // 当前词库文件索引（自动维护，无需手动修改）
-    "total_words": 26                   // 当前词库总单词数（自动维护，无需手动修改）
+    "default_font_size": 22,            
+    "default_interval": 2.5,
+    "default_scroll_mode": "文件内循环",
+    "window_width": 500,
+    "window_height": 120,
+    "current_index": 7,
+    "current_file_index": 0,
+    "total_words": 26
   }
 }
 ```
@@ -168,8 +168,8 @@ WordScrollViewer/
 ```json
 {
   "app": {
-    "background_color": "white",      // 下拉框背景色
-    "text_color": "black"             // 下拉框文字颜色
+    "background_color": "white",
+    "text_color": "black"
   }
 }
 ```
